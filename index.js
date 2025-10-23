@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const Task = require("./models/task.model");
@@ -5,8 +6,7 @@ const taskRoute = require("./routes/task.route");
 const cors = require("cors");
 
 const app = express();
-const uri =
-  "mongodb+srv://admin:admin@cluster0.oj8emcj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.MONGO_URI;
 
 app.use(express.json());
 app.use(cors());
